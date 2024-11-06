@@ -11,6 +11,8 @@ class CustomerAdmin(admin.ModelAdmin):
     list_filter = ['first_name', 'last_name', 'newsletter_abo', 'email_address', 'account']
     list_display = ['first_name', 'last_name', 'newsletter_abo', 'email_address', 'account']
 
+    #readonly_fields = ['account'] Beispiel wenn man nur ein Feld lesen soll
+
     fieldsets = [
         (
             None,

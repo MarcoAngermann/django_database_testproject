@@ -12,21 +12,9 @@ class Customer(models.Model):
     newsletter_abo = models.BooleanField(default=True)
     email_address = models.EmailField(max_length=30,blank=True, default="") 
     account = models.FloatField(blank=True, null=True)
-    slug = models.SlugField(blank=True, default="") #Beispiel fuer einen Slug
-    
-    class Meta:
-        verbose_name = 'Customer'
-        verbose_name_plural = 'Customers'
-        ordering = ["first_name", "last_name"]
-       
-
     def __str__(self):
         return f"{self.first_name}, {self.last_name}"
     
-    def save(self):
-        self.account = 54646.0
-        return super().save()
-
 class Product(models.Model):
     name = models.CharField(max_length=30)
     price = models.FloatField()
@@ -50,11 +38,6 @@ class ProductType(models.Model):
 
     def __str__(self):
         return f"{self.type_name}"
-    
-    def save(self, *args, **kwargs):
-        print("save")
-        super.save(*args, **kwargs)
-
 
 
 

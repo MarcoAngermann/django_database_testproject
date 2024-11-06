@@ -13,7 +13,7 @@ class CustomerAdmin(admin.ModelAdmin):
 
     readonly_fields = ['account'] #Beispiel wenn man nur ein Feld lesen soll
 
-    prepopulated_fields = {"slug": ("first_name", "last_name")}
+    prepopulated_fields = {"slug": ("first_name", "last_name")} #Beispiel wenn man ein Slug erstellen soll
 
     fieldsets = [
         (

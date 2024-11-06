@@ -13,6 +13,12 @@ class Customer(models.Model):
     email_address = models.EmailField(max_length=30,blank=True, default="") 
     account = models.FloatField(blank=True, null=True)
     
+    class Meta:
+        verbose_name = 'Customer'
+        verbose_name_plural = 'Customers'
+        ordering = ["first_name", "last_name"]
+       
+
     def __str__(self):
         return f"{self.first_name}, {self.last_name}"
 

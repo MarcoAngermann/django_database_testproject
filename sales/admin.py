@@ -11,7 +11,9 @@ class CustomerAdmin(admin.ModelAdmin):
     list_filter = ['first_name', 'last_name', 'newsletter_abo', 'email_address', 'account']
     list_display = ['first_name', 'last_name', 'newsletter_abo', 'email_address', 'account']
 
-    #readonly_fields = ['account'] Beispiel wenn man nur ein Feld lesen soll
+    readonly_fields = ['account'] #Beispiel wenn man nur ein Feld lesen soll
+
+    prepopulated_fields = {"slug": ("first_name", "last_name")}
 
     fieldsets = [
         (
@@ -24,7 +26,7 @@ class CustomerAdmin(admin.ModelAdmin):
             "Advanced options",
             {
                 "classes": ["collapse"],
-                "fields": ["newsletter_abo"],
+                "fields": ["newsletter_abo", "slug"],
             },
         ),
     ]
